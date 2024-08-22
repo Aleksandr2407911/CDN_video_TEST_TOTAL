@@ -1,0 +1,6 @@
+CREATE TABLE cities (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  latitude FLOAT NOT NULL,
+  longitude FLOAT NOT NULL
+);

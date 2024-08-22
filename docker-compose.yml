@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+
+  server:
+    build: server/
+    command: python ./CDNvideo_test/main.py
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    depends_on:
+      - server
+volumes:
+  db_data:
