@@ -3,8 +3,8 @@ version: '3.9'
 services:
 
   server:
-    build: server/
-    command: python ./CDNvideo_test/main.py
+    build: ./
+    command: python ./src/main.py
     ports:
       - "8000:8000"
 
